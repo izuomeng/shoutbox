@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
+var register = require('./routes/register');
+var messages = require('./lib/messages');
 
 var app = express();
 
@@ -19,11 +21,17 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session());
+app.use(cookieParser('zuomeng'));
+app.use(session({
+  secret: 'zuomeng',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/register', register);
 
 
 // catch 404 and forward to error handler
