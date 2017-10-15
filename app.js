@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('zuomeng'));
 app.use(session({
   secret: 'zuomeng',
-  resave: false,
-  saveUninitialized: true
+  resave: true,
+  saveUninitialized: false
 }));
 app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
