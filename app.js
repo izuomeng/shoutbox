@@ -6,11 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var index = require('./routes/index');
 var register = require('./routes/register');
 var messages = require('./lib/messages');
 var login = require('./routes/login');
 var user = require('./lib/middleware/user');
+var entries = require('./routes/entries');
 
 var app = express();
 
@@ -27,13 +27,13 @@ app.use(cookieParser('zuomeng'));
 app.use(session({
   secret: 'zuomeng',
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(user);
 app.use(messages);
 
-app.use('/', index);
+app.use('/', entries);
 app.use('/', register);
 app.use('/', login);
 

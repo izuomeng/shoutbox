@@ -10,6 +10,15 @@
     <% include messages %>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div class="content">
+      <% entries.forEach((v) => { %>
+        <article class="entry">
+          <h3><%= v.title %></h3>
+          <p><%= v.body %></p>
+          <span class="postBy">Posted by <%= v.username %></span>
+        </article>
+      <% }) %>
+    </div>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/alert.min.js"></script>
   </body>

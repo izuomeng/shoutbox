@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 50px 100px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -13,4 +13,13 @@ a {
 .menu .name {
   color: gray;
   font-size: 20px;
+}
+.entry {
+  padding: 20px;
+  box-shadow: 0 0 5px 0 lightgrey;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.postBy {
+  color: gray;
 }

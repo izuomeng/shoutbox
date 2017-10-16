@@ -15,7 +15,7 @@ router.post('/login', function(req, res, next) {
             req.session.uid = user.id;
             res.redirect('/');
         } else {
-            res.message('Sorry! Invalid credentials.');
+            res.message('Sorry! Invalid credentials.', 'danger', req);
             res.redirect('back');
         }
     });
