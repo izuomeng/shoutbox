@@ -9,6 +9,8 @@ var session = require('express-session');
 var index = require('./routes/index');
 var register = require('./routes/register');
 var messages = require('./lib/messages');
+var login = require('./routes/login');
+var user = require('./lib/middleware/user');
 
 var app = express();
 
@@ -27,11 +29,13 @@ app.use(session({
   resave: true,
   saveUninitialized: false
 }));
-app.use(messages);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(user);
+app.use(messages);
 
 app.use('/', index);
 app.use('/', register);
+app.use('/', login);
 
 
 // catch 404 and forward to error handler
