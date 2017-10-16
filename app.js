@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('zuomeng'));
 app.use(session({
   secret: 'zuomeng',
+  cookie: {maxAge: 6e8},
   resave: true,
   saveUninitialized: true
 }));
