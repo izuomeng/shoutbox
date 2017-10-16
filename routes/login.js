@@ -5,6 +5,11 @@ var User = require('../lib/user');
 router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Login' });
 });
+router.get('/logout', function(req, res, next) {
+    req.session.uid = 0;
+    res.message('Logout succeed', 'success', req);
+    res.redirect('/');
+});
 router.post('/login', function(req, res, next) {
     var data = req.body;
     User.authenticate(data.user_name, data.user_pass, function(err, user) {
