@@ -12,9 +12,27 @@
                     <span aria-hidden="true">&laquo;</span>
                 </li>
             <% } %>
+            <% for (var i = 2; i > 0 ; i--) { %>
+                <% if (page.number - i >= 0) { %>
+                    <li>
+                        <a href="/?page=<%= page.number - i + 1 %>">
+                            <%= page.number - i + 1 %>
+                        </a>
+                    </li>
+                <% } %>
+            <% } %>
             <li class="active">
-                <span><%= page.number + 1 %><span class="sr-only">(current)</span></span>
+                <span><%= page.number + 1 %></span>
             </li>
+            <% for (var i = 1; i <= 2; i++) { %>
+                <% if (page.number + i < page.count) { %>
+                    <li>
+                        <a href="/?page=<%= page.number + i + 1 %>">
+                            <%= page.number + i + 1 %>
+                        </a>
+                    </li>
+                <% } %>
+            <% } %>
             <% if (page.number < page.count - 1) { %>
                 <li>
                     <a href="/?page=<%= page.number + 2 %>" aria-label="Next">
