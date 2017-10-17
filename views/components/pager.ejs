@@ -12,7 +12,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </li>
             <% } %>
-            <% for (var i = 2; i > 0 ; i--) { %>
+            <% for (var i = page.front; i > 0 ; i--) { %>
                 <% if (page.number - i >= 0) { %>
                     <li>
                         <a href="/?page=<%= page.number - i + 1 %>">
@@ -24,7 +24,7 @@
             <li class="active">
                 <span><%= page.number + 1 %></span>
             </li>
-            <% for (var i = 1; i <= 2; i++) { %>
+            <% for (var i = 1; i <= page.end; i++) { %>
                 <% if (page.number + i < page.count) { %>
                     <li>
                         <a href="/?page=<%= page.number + i + 1 %>">
