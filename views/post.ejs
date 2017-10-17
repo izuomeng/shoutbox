@@ -6,8 +6,8 @@
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <% include menu %>
-    <% include messages %>
+    <%- include('components/menu') %>
+    <%- include('components/messages') %>
     <h1><%= title %></h1>
     <p>Fill in the form below to add a new post</p>
     <form method="post">
