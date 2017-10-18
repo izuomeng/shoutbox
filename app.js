@@ -11,6 +11,7 @@ var messages = require('./lib/messages');
 var login = require('./routes/login');
 var user = require('./lib/middleware/user');
 var entries = require('./routes/entries');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(messages);
 app.use('/', entries);
 app.use('/', register);
 app.use('/', login);
+app.use('/api', api);
 
 
 // catch 404 and forward to error handler
