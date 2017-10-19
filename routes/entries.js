@@ -11,7 +11,7 @@ router.get('/', page(Entry.count, 5), function(req, res, next) {
             return next(err);
         }
         res.render('entries', {
-            title: 'Entries',
+            title: 'iPost',
             entries
         });
     });
